@@ -38,7 +38,7 @@
             <h1 class="mb-5 text-3xl font-semibold">Kitchenware</h1>
             <div class="kitchen-items grid grid-cols-3 gap-5">
               <!-- product card 1 -->
-              <div class="card bg-base-100 shadow-sm">
+              <div id="card-1" class="card bg-base-100 shadow-sm">
                 <figure class="m-5 bg-gray-200 rounded-lg">
                   <img
                     src="./assets/kitchen-1.png"
@@ -58,7 +58,7 @@
                 <div class="m-5">
                   <button
                     id="product-btn-1"
-                    class="btn bg-pink-500 text-white btn-block"
+                    class="btn bg-pink-500 text-white btn-block cart-button"
                   >
                     Add to cart
                   </button>
@@ -76,10 +76,12 @@
                 <div class="card-body items-center text-center">
                   <h2 class="card-title">থালা বাটি</h2>
                   <p>⭐⭐⭐⭐</p>
-                  <p class="text-gray-500">250.00 <span>Tk</span></p>
+                  <p class="text-gray-500"><span>250.00</span>Tk</p>
                 </div>
                 <div class="m-5">
-                  <button class="btn bg-pink-500 text-white btn-block">
+                  <button
+                    class="btn bg-pink-500 text-white btn-block cart-button"
+                  >
                     Add to cart
                   </button>
                 </div>
@@ -96,10 +98,12 @@
                 <div class="card-body items-center text-center">
                   <h2 class="card-title">স্টিলের হাড়ি</h2>
                   <p>⭐⭐⭐⭐</p>
-                  <p class="text-gray-500">750.00 <span>Tk</span></p>
+                  <p class="text-gray-500"><span>750.00</span>Tk</p>
                 </div>
                 <div class="m-5">
-                  <button class="btn bg-pink-500 text-white btn-block">
+                  <button
+                    class="btn bg-pink-500 text-white btn-block cart-button"
+                  >
                     Add to cart
                   </button>
                 </div>
@@ -118,11 +122,19 @@
             </div>
           </div>
           <div class="cart-box bg-white mt-10 p-5">
-            <h1>cart</h1>
+            <h1 class="font-semibold">cart</h1>
+            <button
+              id="clear-btn"
+              class="bg-pink-500 text-white rounded-xl btn-block"
+            >
+              Clear
+            </button>
             <div id="cart-container" class="space-y-3"></div>
             <div class="">
               <h2>Total Price: <span id="total-price">0</span>Tk</h2>
-              <h2>Total quantity: <span id="total-quantity">0</span>Tk</h2>
+              <h2>
+                Total quantity: <span id="total-quantity">0</span> Product
+              </h2>
               <button class="bg-pink-500 text-white rounded-xl btn-block">
                 Make Purchase
               </button>
