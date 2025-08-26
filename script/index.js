@@ -4,28 +4,30 @@ function getElement(id) {
 }
 
 // delegation technique
-document.getElementById("product-box").addEventListener("click", function (e) {
-  if (e.target.className.includes("cart-button")) {
-    // alert("clicked");
-    const cartButton = e.target;
-    const productImg =
-      cartButton.parentNode.parentNode.children[0].children[0].src;
-    const productTitle =
-      cartButton.parentNode.parentNode.children[1].children[0].innerText;
-    const productPrice =
-      cartButton.parentNode.parentNode.children[1].children[2].children[0]
-        .innerText;
+document
+  .getElementById("kitchen-card-container")
+  .addEventListener("click", function (e) {
+    if (e.target.className.includes("cart-button")) {
+      // alert("clicked");
+      const cartButton = e.target;
+      const productImg =
+        cartButton.parentNode.parentNode.children[0].children[0].src;
+      const productTitle =
+        cartButton.parentNode.parentNode.children[1].children[0].innerText;
+      const productPrice =
+        cartButton.parentNode.parentNode.children[1].children[2].children[0]
+          .innerText;
 
-    const totalPrice = getElement("total-price").innerText;
+      const totalPrice = getElement("total-price").innerText;
 
-    const currentPrice = Number(productPrice) + Number(totalPrice);
-    // console.log(productPrice, totalPrice, currentPrice);
+      const currentPrice = Number(productPrice) + Number(totalPrice);
+      // console.log(productPrice, totalPrice, currentPrice);
 
-    getElement("total-price").innerText = currentPrice.toFixed(2);
+      getElement("total-price").innerText = currentPrice.toFixed(2);
 
-    const cartContainer = getElement("cart-container");
-    const newCart = document.createElement("div");
-    newCart.innerHTML = `
+      const cartContainer = getElement("cart-container");
+      const newCart = document.createElement("div");
+      newCart.innerHTML = `
         <div class="bg-gray-100 flex justify-between p-5 ">
                 <div>
                   <img src="${productImg}" alt="" class="w-10" />
@@ -37,15 +39,15 @@ document.getElementById("product-box").addEventListener("click", function (e) {
               </div>
 
     `;
-    cartContainer.appendChild(newCart);
+      cartContainer.appendChild(newCart);
 
-    const totalQuantity = getElement("total-quantity").innerText;
-    const currentQuantity = Number(totalQuantity) + 1;
+      const totalQuantity = getElement("total-quantity").innerText;
+      const currentQuantity = Number(totalQuantity) + 1;
 
-    getElement("total-quantity").innerText = currentQuantity;
-    console.log(totalQuantity, currentQuantity);
-  }
-});
+      getElement("total-quantity").innerText = currentQuantity;
+      console.log(totalQuantity, currentQuantity);
+    }
+  });
 
 // eksathe sob button gula dhore
 // traverse technique
@@ -91,6 +93,85 @@ document.getElementById("product-box").addEventListener("click", function (e) {
 //     console.log(totalQuantity, currentQuantity);
 //   });
 // }
+
+// delegation technique for sports section
+document
+  .getElementById("sport-card-container")
+  .addEventListener("click", function (event) {
+    if (event.target.className.includes("sport-button")) {
+      const sportButton = event.target;
+      const sportImg =
+        sportButton.parentNode.parentNode.children[0].children[0].src;
+      const sportTitle =
+        sportButton.parentNode.parentNode.children[1].children[0].innerText;
+      const sportPrice =
+        sportButton.parentNode.parentNode.children[1].children[2].children[0]
+          .innerText;
+
+      const totalPrice = getElement("total-price").innerText;
+      const currentPrice = Number(sportPrice) + Number(totalPrice);
+      getElement("total-price").innerText = currentPrice.toFixed(2);
+
+      const totalQuantity = getElement("total-quantity").innerText;
+      const currentQuantity = Number(totalQuantity) + 1;
+      getElement("total-quantity").innerText = currentQuantity;
+
+      const cartContainer = getElement("cart-container");
+      const newCart = document.createElement("div");
+      newCart.innerHTML = `
+            <div class="bg-gray-100 flex justify-between p-5 ">
+                <div>
+                  <img src="${sportImg}" alt="" class="w-10" />
+                </div>
+                <div>
+                  <h2 class="font-bold">${sportTitle}</h2>
+                  <h2>${sportPrice} TK</h2>
+                </div>
+              </div>
+      `;
+      cartContainer.appendChild(newCart);
+    }
+  });
+// delegation technique for furniture section
+document
+  .getElementById("furniture-card-container")
+  .addEventListener("click", function (event) {
+    if (event.target.className.includes("furniture-button")) {
+      const furnitureBtn = event.target;
+      const furnitureImg =
+        furnitureBtn.parentNode.parentNode.children[0].children[0].src;
+      const furnitureTile =
+        furnitureBtn.parentNode.parentNode.children[1].children[0].innerText;
+      const furniturePrice =
+        furnitureBtn.parentNode.parentNode.children[1].children[2].children[0]
+          .innerText;
+
+      const totalPrice = getElement("total-price").innerText;
+      const currentPrice = Number(totalPrice) + Number(furniturePrice);
+      getElement("total-price").innerText = currentPrice.toFixed(2);
+
+      const totalQuantity = getElement("total-quantity").innerText;
+      const currentQuantity = Number(totalQuantity) + 1;
+      getElement("total-quantity").innerText = currentQuantity;
+
+      const cartContainer = getElement("cart-container");
+      const newCart = document.createElement("div");
+      newCart.innerHTML = `
+             <div class="bg-gray-100 flex justify-between p-5 ">
+                <div>
+                  <img src="${furnitureImg}" alt="" class="w-10" />
+                </div>
+                <div>
+                  <h2 class="font-bold">${furnitureTile}</h2>
+                  <h2>${furniturePrice} TK</h2>
+                </div>
+              </div>
+      `;
+      cartContainer.appendChild(newCart);
+
+      console.log(furniturePrice);
+    }
+  });
 
 document.getElementById("clear-btn").addEventListener("click", function () {
   const cartContainer = getElement("cart-container");
